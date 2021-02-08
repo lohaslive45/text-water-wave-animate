@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000;
+}
+/*
+.content {
+  position: relative;
+}
+*/
+.content h2 {
+  position: absolute;
+  /*color: #fff;*/
+  /*todo 移動至正中間位置 (因為有兩個h2重疊，導致位置偏移)*/
+  transform: translate(-50%, -50%);
+  font-size: 8em;
+}
+
+/*!第一個h2-上層 = 無-填滿+邊框*/
+.content h2:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px #03a9f4;
+}
+
+/*!第二個h2-下層 = 填滿+邊框*/
+.content h2:nth-child(2) {
+  color: #03a9f4;
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 51%,
+      8% 43%,
+      15% 37%,
+      24% 34%,
+      33% 35%,
+      39% 40%,
+      46% 46%,
+      52% 52%,
+      60% 56%,
+      69% 58%,
+      78% 55%,
+      87% 49%,
+      95% 43%,
+      100% 40%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      0% 51%,
+      7% 59%,
+      14% 64%,
+      24% 69%,
+      34% 70%,
+      44% 66%,
+      52% 58%,
+      58% 51%,
+      64% 42%,
+      74% 37%,
+      85% 39%,
+      93% 43%,
+      99% 51%,
+      100% 59%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
